@@ -8,7 +8,7 @@ import { asker, MODELS } from './Ask.mjs';
 const execAsync = promisify(exec);
 
 // Default model if not specified
-const DEFAULT_MODEL = "g";  
+const DEFAULT_MODEL = "l";  
 // Get model from environment variable or use default
 const MODEL = process.argv[2] || DEFAULT_MODEL;
 
@@ -95,7 +95,6 @@ function extractCode(text) {
   const match = text.match(/```sh([\s\S]*?)```/);
   return match ? match[1].trim() : null;
 }
-
 
 async function get_shell() {
   const shellInfo = (await execAsync('uname -a && $SHELL --version')).stdout.trim();
